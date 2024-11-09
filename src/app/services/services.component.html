@@ -1,0 +1,87 @@
+<div class="card">
+  <!-- Main Services List -->
+  <div id="services-list" class="services-list">
+    <div
+      *ngFor="let service of services"
+      class="service-item"
+      (click)="toggleSubcategories(service.id)"
+    >
+      <i class="{{ service.icon }}" style="font-size: 20px"></i>
+      {{ service.name }}
+    </div>
+  </div>
+
+  <div class="divider mb-md-4 mb-sm-3"></div>
+
+  <!-- Subcategory Lists for Each Main Service (Always Visible) -->
+  <div *ngIf="selectedSubcategory || showCard" class="subcategory-list">
+    <div *ngFor="let service of services">
+      <div *ngIf="service.id === selectedSubcategory">
+        <div class="row justify-content-center">
+          <div
+            *ngFor="let subcategory of service.subcategories"
+            class="col-12 col-md-4 col-lg-3 d-flex justify-content-center subcategory-item"
+            (click)="showStylistCard(subcategory)"
+          >
+            {{ subcategory }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dynamic Card for Stylists -->
+<div
+  id="dynamic-card-container"
+  class="container-fluid"
+  *ngIf="showCard && selectedSubcategory"
+>
+  <div class="card new-card">
+    <div class="container">
+      <div class="row">
+        <!-- Left Section: Location Input -->
+        <div class="col-md-6 left-section">
+          <div class="card-list1 p-5">
+            <h4>
+              <p><b>What's your location?</b></p>
+            </h4>
+            <h5><label for="location">Location:</label></h5>
+            <input
+              type="text"
+              [(ngModel)]="location"
+              class="form-control"
+              placeholder="Enter your location"
+            />
+            <button class="btn btn-primary mt-4" (click)="submitLocation()">
+              Submit Location
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Section: Stylist List -->
+        <div class="col-md-6 right-section">
+          <div class="card-list p-4">
+            <h3 class="heading">{{ selectedSubcategory }} Stylists</h3>
+            <div class="custom-dropdown">
+              <div *ngFor="let stylist of stylists[selectedSubcategory]">
+                <div class="stylist-option">
+                  <div class="stylist-details">
+                    <span class="stylist-name">{{ stylist.name }}</span>
+                    <span
+                      class="stylist-rating"
+                      style="color: gray; font-size: 0.9em"
+                    >
+                      &#9733; {{ stylist.rating }}
+                    </span>
+                  </div>
+                  <button class="btn btn-primary book-btn">Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

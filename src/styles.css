@@ -1,1 +1,376 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  box-shadow: 0 4px 8px rgba(71, 47, 47, 0.1);
+  padding: 1rem 2rem;
+  background-color: #000000;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  transform: scale(1.1);
+}
+
+/* Search Bar */
+.form-control-sm {
+  background-color: #eeeeee;
+  border: 1px solid #444;
+  color: #000000;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-control-sm::placeholder {
+  color: #777;
+}
+
+.form-control-sm:focus {
+  background-color: #ffffff;
+  color: #000000;
+  outline: none;
+  border-color: #000000;
+  transform: scale(1.05);
+}
+
+/* Search Button with Transition */
+.btn-search {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Logout Button with Pop-up Effect */
+.btn-light {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #919290;
+  transform: scale(1.1);
+}
+
+/* Pop-up Animation */
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Dropdown Styling */
+.dropdown {
+  margin-top: 20px;
+  width: 50%;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover {
+  transform: scale(1.05);
+}
+
+/* Main service categories styling */
+.services-list {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.service-item {
+  position: relative;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #000000;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.service-item.active {
+  color: #007bff;
+}
+
+/* Underline effect for active category */
+.service-item.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.service-item:not(.active)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.service-item:hover::after {
+  width: 100%;
+}
+
+/* Subcategory accordion styling */
+.subcategory-container {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.subcategory-item {
+  padding: 8px 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subcategory-item:hover {
+  background-color: #e0e0e0;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #000000;
+  margin: 10px auto;
+  width: 80%;
+  font-weight: bold;
+  justify-content: center;
+}
+
+/* Pop-up animation for the dynamically created card */
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.home-page {
+  /* min-height: 80vh; */
+  /* margin-top: 110px; */
+  /* margin: 100px auto; */
+}
+
+/* Consistent styling for all cards */
+
+.card {
+  background-color: #eeeeee;
+  color: #000000;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 20px auto;
+  width: 97%;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4);
+  animation: fadeInPop 1s ease forwards;
+  border-color: #eeeeee;
+}
+
+/* Additional styling for dynamically created cards */
+.new-card {
+  border-radius: 15px;
+  padding: 40px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  animation: popUp 0.5s ease forwards;
+}
+
+.list-group-item {
+  background-color: #000000;
+  color: #ffffff;
+  border: 0;
+}
+
+.right-section .card {
+  max-height: 300px;
+  /* Set a max height for the stylist list */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+
+/* Custom scrollbar styles for Webkit browsers */
+.right-section .card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.left-section .card {
+  max-height: 300px;
+  /* Set a max height for the stylist list */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+
+.heading {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+  padding: 10px;
+}
+
+.form-select {
+  background-color: #eeeeee;
+  color: #000000;
+}
+
+/* General styling */
+.stylist-select {
+  font-size: 1.2em;
+  /* Increase font size */
+  padding: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for options */
+.stylist-select option {
+  padding: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Option hover animation (only applies visually in some browsers) */
+.stylist-select option:hover {
+  background-color: #f0f0f0;
+  /* Lighter background on hover */
+  color: #333;
+  /* Darker text color */
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-list1 {
+  background-color: #cccccc;
+  color: #000000;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 20px auto;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4);
+  animation: fadeInPop 1s ease forwards;
+  border-color: #eeeeee;
+  margin-top: 140px;
+}
+
+.card-list {
+  background-color: #cccccc;
+  color: #000000;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 20px auto;
+  width: 97%;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4);
+  animation: fadeInPop 1s ease forwards;
+  border-color: #eeeeee;
+  height: 90%;
+}
+
+/* Custom dropdown styling */
+.custom-dropdown {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+/* Each stylist option */
+.stylist-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.stylist-option:hover {
+  background-color: #f9f9f9;
+}
+
+/* Stylist name and rating */
+.stylist-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Book button styling */
+.book-btn {
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+
+/* General Styles */
+h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}

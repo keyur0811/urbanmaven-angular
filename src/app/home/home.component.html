@@ -1,0 +1,75 @@
+<!-- Big Card Section -->
+<!-- <div class="container-fluid text-light p-4">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-center text-md-start">
+      <h1 class="display-4">UrbanMaven: Making the City Stylish</h1>
+      <p class="lead">Join us to explore the best Stylists.</p>
+      <div class="col-md-6" style="width: 100%">
+        <label for="service-select">
+          <h2>Where do you want a service?</h2>
+        </label>
+        <select
+          id="service-select"
+          class="form-select dropdown"
+          aria-label="Select a region"
+        >
+          <option selected>Select a region</option>
+          <option value="6">Nova Scotia</option>
+          <option value="1">Alberta</option>
+          <option value="2">British Columbia</option>
+          <option value="3">Manitoba</option>
+          <option value="4">New Brunswick</option>
+          <option value="5">Newfoundland and Labrador</option>
+          <option value="7">Ontario</option>
+          <option value="8">Prince Edward Island</option>
+          <option value="9">Quebec</option>
+          <option value="10">Saskatchewan</option>
+          <option value="11">Northwest Territories</option>
+          <option value="12">Nunavut</option>
+          <option value="13">Yukon</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img
+        src='../../assets/homebg.png'
+        alt="Lady doing hair"
+        class="img-fluid"
+        style="max-width: 80%; height: auto"
+      />
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid text-light p-4 home-page">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-center text-md-start">
+      <h1 class="display-4">UrbanMaven: Making the City Stylish</h1>
+      <p class="lead">Join us to explore the best Stylists.</p>
+      
+      <div class="col-md-6" style="width: 100%">
+        <label for="service-select">
+          <h2>Where do you want a service?</h2>
+        </label>
+        <select
+          id="service-select"
+          class="form-select dropdown"
+          aria-label="Select a region"
+          [(ngModel)]="selectedRegion"
+          (change)="onRegionChange()">
+          <option selected>Select a region</option>
+          <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-center">
+      <img
+        src="assets/homebg.png"
+        alt="Lady doing hair"
+        class="img-fluid"
+        style="max-width: 80%; height: auto"
+      />
+    </div>
+  </div>
+</div>
